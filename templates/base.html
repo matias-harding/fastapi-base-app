@@ -25,12 +25,12 @@
 
       {% for todo in todos %}
         <div class="ui segment">
-          <p class="ui big header">{{ todo.id}} | {{ todo.title }}</p>
+          <p class="ui big header">{{ todo.id }} | {{ todo.title }}</p>
 
           {% if todo.complete == False %}
-          <span class="ui grey label">Not Completed</span>
+            <span class="ui grey label">Not Completed</span>
           {% else %}
-          <span class="ui green label">Completed</span>
+            <span class="ui green label">Completed</span>
           {% endif %}
 
           <a class="ui button blue" href="/update/{{ todo.id }}">Update</a>

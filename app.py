@@ -26,11 +26,11 @@ def get_db():
 def home(request: Request, db: Session = Depends(get_db)):
   todos = db.query(models.Todo).all()
   return templates.TemplateResponse("base.html", 
-                                    {"request": request, "todo_list": todos})
+                                    {"request": request, "todos": todos})
 
 @app.post("/add")
 def add_todo(request: Request, title: str = Form(...), db: Session = Depends(get_db)):
-  new_todo = models.Todo(title=title)
+  new_todo = models.Todo(title=title, complete=False)
   db.add(new_todo)
   db.commit()
 
